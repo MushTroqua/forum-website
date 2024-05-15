@@ -1,0 +1,119 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+html, div{
+    background-color: #212529;
+    color:white;
+}
+
+a:hover{
+    color:#ffca2c;
+}
+
+ul{
+    color:white;
+}
+
+#title-bar{
+    padding:10px;
+}
+
+#title-link{
+    font-family: 'Copperplate Gothic Bold';
+    text-decoration:none;
+}
+
+#user-info-content{
+    float:right;
+}
+
+#user-info-button{
+    padding: 0px 10px 0 10px;
+    margin: 0px 10px 0 10px;
+}
+
+#user-info-button:hover{
+    background-color:white;
+}
+
+#user-avatar{
+    width:40px;
+    border-radius: 100%;
+}
+
+#left-content-box{
+    border-right: 2px solid white;
+}
+
+#left-content-box-buttons{
+    float:right;
+}
+
+#dropdown-community-icons{
+    width:20px;
+    margin:0px 10px 0px 10px;
+}
+
+#header-container{
+    padding:10px 10px 0px 10px;
+}
+
+
+#dropdown-links{
+    text-decoration: none;
+    color:white;
+    text-align: center;
+}
+
+#login-body-container{
+    background-color: black;
+    z-index:10;
+}
+
+#login-form-container{
+    padding:100px 80px 100px 80px;
+}
+
+#login-links{
+    text-decoration: none;
+    color:white;
+}
+
+#login-links:hover{
+    color:#ffca2c;
+}
+
+#dropdown-community-icons{
+    width:20px;
+    margin:0px 10px 0px 10px;
+}
+
+#search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #212529;
+    border-top: none;
+    z-index: 1000;
+}
+
+#search-suggestions ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#search-suggestions li {
+    list-style-type: none;
+    padding: 10px;
+    cursor: pointer;
+}   
+
+#search-suggestions a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#search-suggestions li:hover {
+    background-color: #464e56;
+}
