@@ -49,19 +49,12 @@
         <hr>
             <div id="Profile-userpost">
             <h2><?php echo $_SESSION['username']; ?>'s Post Discussions</h2>
-            <div>
+            <div style="background-color:#212529;">
                 <?php foreach ($userPosts as $post): ?>
-                    <div class="container" id="post-profile-container" style="border:1px solid white;line-height:1.5;cursor:pointer;padding:50px;margin-bottom:50px;" onclick="redirectToPostDetails(<?php echo $post['PostID']; ?>)">
+                    <div class="container" id="post-profile-container" style="line-height:1.5;cursor:pointer;padding:50px;" onclick="redirectToPostDetails(<?php echo $post['PostID']; ?>)">
                         <h3><?php echo $post['Title']; ?></h3>
                         <p><?php echo $post['Body']; ?></p>
                         <p>Date Submitted: <?php echo $post['Date_Submitted']; ?></p>
-
-                        <?php if($_SESSION['username'] === $post['Username']): ?>
-                            <form method="post" action="delete_post.php" onsubmit="return confirm('Are you sure you want to delete this post?');">
-                                <input type="hidden" name="post_id" value="<?php echo $post['PostID']; ?>">
-                                <button type="submit" class="btn btn-warning">Delete</button>
-                            </form>
-                        <?php endif;?>
                     </div>
                 <?php endforeach; ?>
             </div><br>

@@ -2,7 +2,7 @@
 include "header-menu.php";
 ?>
     <body >
-    <div id="carouselExampleCaptions" class="carousel slide" style="background-image:linear-gradient(rgba(255, 218, 0, 0.527),rgba(33, 37, 41, 1)) , url('assets/ust-header.jpg'); background-size:cover;">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="background-image:linear-gradient(rgba(255, 218, 0, 0.527),rgba(33, 37, 41, 1)) , url('assets/ust-header.jpg'); background-size:cover;">
         <div class="carousel-inner" style="width:30%;margin:0 650px 0 650px;">
             <div class="carousel-item active">
             <img src="assets/pic-1.jpg" class="d-block w-100 " alt="... ">
@@ -51,10 +51,10 @@ include "header-menu.php";
                                     } else {
                                         echo '<a class="btn" type="button" href="newpost.php" style="margin-right:20px;"><i class="bi bi-plus"></i>New post</a>';
                             } ?>
-                <a class="btn" type="button" href="index.php"><i class="bi bi-question-circle-fill"></i> F.A.Q</a>
+                <a class="btn" type="button" href="faq.php"><i class="bi bi-question-circle-fill"></i> F.A.Q</a>
                 <hr>
-                <a class="btn" type="button" href="index.php"><i class="bi bi-chat-right-quote-fill"></i> About Us</a>
-                <a class="btn" type="button" href="index.php"><i class="bi bi-telephone-outbound-fill"></i> Contact Us</a>
+                <a class="btn" type="button" href="aboutus.php"><i class="bi bi-chat-right-quote-fill"></i> About Us</a>
+                <a class="btn" type="button" href="contactus.php"><i class="bi bi-telephone-outbound-fill"></i> Contact Us</a>
 
                 </div>
             </div>
@@ -85,7 +85,7 @@ include "header-menu.php";
                                         echo "<a class='btn' data-bs-toggle='dropdown' aria-expanded='false'><i class='bi bi-three-dots'></i></a>";
                                         echo "<ul class='dropdown-menu' style='text-align:center;'>";
                                         if(isset($_SESSION['username']) && $_SESSION['username'] === $row['Username']) {
-                                        echo "<li class='dropdown-item'><form method='post' action='delete_post.php' onsubmit=\"return confirm('Are you sure you want to delete this post?');\"><input type='hidden' name='post_id' value='" . $row["PostID"] . "'><button type='submit' class='btn'><i class='bi bi-trash3-fill'></i>Delete</button></form></li>"; // DELETE BUTTON FOR USER (FRONTEND)
+                                        echo "<li class='dropdown-item'><form method='post' action='delete_post.php'><input type='hidden' name='post_id' value='" . $row["PostID"] . "'><button type='submit' class='btn'><i class='bi bi-trash3-fill'></i>Delete</button></form></li>"; // DELETE BUTTON FOR USER (FRONTEND)
                                         //echo "<li class='dropdown-item><a href='#'><i class='bi bi-trash3-fill'></i>Delete</a>";//DELETE BUTTON FOR USER (FRONTEND)
                                         }
                                         echo "<li class='dropdown-item><a href='#' type='button' data-bs-toggle='modal' data-bs-target='#reportModal'><i class='bi bi-flag-fill'></i>Report</a>";//REPORT BUTTON (REDIRECT TO REPORT PAGE?)
@@ -93,9 +93,9 @@ include "header-menu.php";
                                     
                                     echo'</div>';
                                     echo'<div class="container" onclick="window.location=\'post_details.php' . '?id=' . $row["PostID"] . '\'" style="cursor:pointer;background-color:inherit;">';
-                                    echo"<p>" . htmlspecialchars_decode($row["Username"]) . " <i class='bi bi-person-circle'></i> || ".htmlspecialchars($row["Date_Submitted"])."</p>";
-                                    echo"<h1>" . htmlspecialchars_decode($row["Title"]) . "</h1>";
-                                    echo"<p>" . htmlspecialchars_decode($row["Body"]) . "</p>";
+                                    echo"<p>" . htmlspecialchars($row["Username"]) . " <i class='bi bi-person-circle'></i> || ".htmlspecialchars($row["Date_Submitted"])."</p>";
+                                    echo"<h1>" . htmlspecialchars($row["Title"]) . "</h1>";
+                                    echo"<p>" . htmlspecialchars($row["Body"]) . "</p>";
                                     echo"</div></div><br>";
                                     //echo'</a>';
                                 }

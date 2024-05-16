@@ -1,17 +1,18 @@
 <?php
     include "header-menu.php";
     if(isset($_SESSION['username'])) { ?>
-    <hr>
         <body>
             <br>
             <div id="post-container" class="container">
                 <div class="row justify-content-md-center">
                     <div class="col-lg-2"></div>
                     <div id="post-form" class="col">
+                    <a href="index.php" style="text-decoration:none;">< Go Back</a>
+                        <h2>Create New Post</h2><br>
                         <form method="post">
-                            <label for="title-text">Title:</label>
-                            <input type="text" class="form-control"  name="title-text" size="55"><br>
-                            <label for="text-body">Description:</label><br>
+                            <h4><label for="title-text">Title:</label></h4>
+                            <input type="text" maxlength="300" class="form-control"  name="title-text" size="55"><br>
+                            <h4><label for="text-body">Description:</label><br></h4>
                             <textarea class="form-control"  name="text-body" rows="4" cols="50"></textarea><br>
                             <button class="btn btn-warning" type="submit">Submit Post</button>
                         </form>

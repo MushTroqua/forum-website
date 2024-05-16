@@ -39,7 +39,7 @@
                     <div class="col-1"></div>
                     <div class="col">
                         <div id="login-form">
-                            <h1 style="text-align:center;"><b>Sign In</b></h1><br>
+                            <h1 style="text-align:center;"><b>Sign-In</b></h1><br>
                             <form method="post">
                                 <label for="username">Username:</label>
                                 <input type="text" class="form-control" name="username" required autocomplete="off"><br>
@@ -81,7 +81,7 @@
                                 
 
 
-                            ?>
+                                ?>
                                 <div style="text-align:center;">
                                     <button class="btn btn-warning" type="submit"><i class="bi bi-box-arrow-in-right"> </i>Login</button>
                                 </div>

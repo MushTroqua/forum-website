@@ -122,3 +122,16 @@ ul{
     background-color: #464e56;
 }
 
+#about-us{
+    font-size: 120%;
+}
+
+#about-us-photo{
+    width:50%;
+    border-radius:100%;
+}
+
+#comment-container{
+    background-color: #212529;
+    padding:10px;
+}
