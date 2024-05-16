@@ -110,11 +110,51 @@
                 $stmt_comments->execute(['post_id' => $post_id]);
 
                 while($comments = $stmt_comments->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div class='comment-sec'>";
-                    echo "<p>" . htmlspecialchars_decode($comments['Username']) . "</p>";
-                    echo "<p>" . htmlspecialchars_decode($comments['CommentBody']) . "</p>";
-                    echo "<p>" . htmlspecialchars_decode($comments['CommentDate']) . "</p>";
-                    echo "</div>";
+                    if(!empty($comments['Username']) || !empty($comments['CommentBody'] || !empty($comments['CommentDate']))) {
+
+                        echo "<div class='comment-sec'>";
+                        echo "<div class='dropdown' style='background-color:inherit;'>";
+                        echo "<a class='btn' data-bs-toggle='dropdown' aria-expanded='false'><i class='bi bi-three-dots'></i></a>";
+                        echo "<ul class='dropdown-menu' style='text-align:center;'>";
+                        if(isset($_SESSION['username']) && $_SESSION['username'] === $comments['Username']) {
+                            echo "<li class='dropdown-item'><form method='post' action='delete_comments.php' onsubmit=\"return confirm('Are you sure you want to delete this post?');\"><input type='hidden' name='comment_id' value='" . $comments["CommentID"] . "'><button type='submit' class='btn'><i class='bi bi-trash3-fill'></i>Delete</button></form></li>"; // DELETE BUTTON FOR USER (FRONTEND)
+                            //echo "<li class='dropdown-item><a href='#'><i class='bi bi-trash3-fill'></i>Delete</a>";//DELETE BUTTON FOR USER (FRONTEND)
+                            }
+                            echo "<li class='dropdown-item><a href='#' type='button' data-bs-toggle='modal' data-bs-target='#reportModal'><i class='bi bi-flag-fill'></i>Report</a>";//REPORT BUTTON (REDIRECT TO REPORT PAGE?)
+                            echo "</ul></div>";
+
+                        ?>
+
+                        <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.44);">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Submit a Report</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    Find this post offensive, or otherwise disturbing the peace? Let us know why by telling us!<Br><br>
+                                    <label for="report-body">Description of report:</label>
+                                    <textarea class="form-control"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a type="button" class="btn btn-warning" href="index.php">Submit Report</a>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <input type='hidden' name='comment_id' value=<?php echo $comments['CommentID'];?>>
+                        <?php
+                        echo "<p>" . htmlspecialchars_decode($comments['Username']) . "</p>";
+                        echo "<p>" . htmlspecialchars_decode($comments['CommentBody']) . "</p>";
+                        echo "<p>" . htmlspecialchars_decode($comments['CommentDate']) . "</p>";
+                        echo "</div>";
+                    }
+                    
                 }
             ?>
         </div>
