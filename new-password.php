@@ -36,62 +36,32 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  lang="en" data-bs-theme="dark" style="width: 100%; background-image:linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url('assets/ust.jpg'); background-size: cover;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            width: 300px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        input[type="password"], input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Create your own account</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
+    <div id="logo-login-container" style="background-color: #212529;">
+        <div id="logo">
+            <img src="assets/tiger.png" style="width:2.5%;">
+        </div>
+    </div>
+    <div class="position-absolute top-50 start-50 translate-middle" style="padding:80px;border-radius:5%;">
         <h2>Set New Password</h2>
         <form method="post">
-            <label for="new-password">New Password:</label>
-            <input type="password" id="new-password" name="new-password" required>
+            <label for="new-password">New Password:</label><Br>
+            <input class="form-control" type="password" id="new-password" name="new-password" required><br>
 
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-
-            <input type="submit" value="Submit">
+            <label for="confirm-password">Confirm Password:</label><br>
+            <input class="form-control" type="password" id="confirm-password" name="confirm-password" required><br>
+            <div style="text-align: center;">
+                <input type="submit" class="btn btn-warning" value="Submit">
+            </div>
         </form>
     </div>
 </body>

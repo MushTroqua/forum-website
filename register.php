@@ -27,9 +27,8 @@
         try {
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$generate_userID, $firstname, $lastname, $age, $email, $username, $passwordHash]);
-            echo "<script>alert('User registered successfully!');</script>";
             $_SESSION["username"] = $username;
-            header("Location: index.php");
+            echo "<script>alert('Registered Successfully!'); window.location.href='index.php';</script>";
             exit();
         } catch (PDOException $e) {
             echo("Could not insert data: " . $e->getMessage());

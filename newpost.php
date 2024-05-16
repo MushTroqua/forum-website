@@ -1,9 +1,7 @@
-<?php 
-    require_once "database.php";
+<?php
     include "header-menu.php";
-
     if(isset($_SESSION['username'])) { ?>
-    
+    <hr>
         <body>
             <br>
             <div id="post-container" class="container">
@@ -15,9 +13,7 @@
                             <input type="text" class="form-control"  name="title-text" size="55"><br>
                             <label for="text-body">Description:</label><br>
                             <textarea class="form-control"  name="text-body" rows="4" cols="50"></textarea><br>
-                            <div style="text-align: center;"> 
-                                <button class="btn btn-warning" type="submit">Submit Post</button>
-                            </div>
+                            <button class="btn btn-warning" type="submit">Submit Post</button>
                         </form>
                     </div>
                     <div class="col-lg-2"></div>
@@ -50,9 +46,8 @@
         try {
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$generate_userID, $username, $title, $body, $date]);
-            echo "<script>alert('New Post Submitted!');</script>";
             $_SESSION["username"] = $username;
-            header("Location: index.php");
+            echo "<script>alert('New Post Submitted!'); window.location.href='index.php';</script>";
             exit();
         } catch (PDOException $e) {
             echo("Could not insert data: " . $e->getMessage());

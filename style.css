@@ -41,11 +41,15 @@ ul{
 }
 
 #left-content-box{
-    border-right: 2px solid white;
+    border-right: 2px solid #6c757d;
 }
 
 #left-content-box-buttons{
     float:right;
+}
+
+#right-content-box{
+    border-left:2px solid #6c757d;
 }
 
 #dropdown-community-icons{
@@ -87,3 +91,33 @@ ul{
     margin:0px 10px 0px 10px;
 }
 
+#search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #212529;
+    border-top: none;
+    z-index: 1000;
+}
+
+#search-suggestions ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#search-suggestions li {
+    list-style-type: none;
+    padding: 10px;
+    cursor: pointer;
+}   
+
+#search-suggestions a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#search-suggestions li:hover {
+    background-color: #464e56;
+}
