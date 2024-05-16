@@ -64,10 +64,10 @@
 <body>
     <div class="post-container">
         <div class="post-details">
-            <p><?php echo htmlspecialchars($post["Username"]); ?></p>
-            <h1><?php echo htmlspecialchars($post["Title"]); ?></h1>
-            <p><?php echo htmlspecialchars($post["Body"]); ?></p>
-            <p><?php echo htmlspecialchars($post["Date_Submitted"]); ?></p>
+            <p><?php echo htmlspecialchars_decode($post["Username"]); ?></p>
+            <h1><?php echo htmlspecialchars_decode($post["Title"]); ?></h1>
+            <p><?php echo htmlspecialchars_decode($post["Body"]); ?></p>
+            <p><?php echo htmlspecialchars_decode($post["Date_Submitted"]); ?></p>
         </div>
         <div class="comment-section">
             <div class="reply-form">
@@ -111,9 +111,9 @@
 
                 while($comments = $stmt_comments->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class='comment-sec'>";
-                    echo "<p>" . htmlspecialchars($comments['Username']) . "</p>";
-                    echo "<p>" . htmlspecialchars($comments['CommentBody']) . "</p>";
-                    echo "<p>" . htmlspecialchars($comments['CommentDate']) . "</p>";
+                    echo "<p>" . htmlspecialchars_decode($comments['Username']) . "</p>";
+                    echo "<p>" . htmlspecialchars_decode($comments['CommentBody']) . "</p>";
+                    echo "<p>" . htmlspecialchars_decode($comments['CommentDate']) . "</p>";
                     echo "</div>";
                 }
             ?>
